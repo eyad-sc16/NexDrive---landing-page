@@ -1547,6 +1547,224 @@ textarea {
   background-color: var(--color-canvas);
 }
 
+/* ---------- Solutions Slider ---------- */
+.slider-section {
+  padding: var(--sp-xxl) 0;
+  background-color: var(--color-canvas-elevated);
+}
+
+.slider {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.slider__viewport {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 1s;
+}
+
+.slider__card {
+  background-color: var(--color-canvas);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--rounded-none);
+  padding: var(--sp-xl) var(--sp-md);
+  text-align: center;
+  max-width: 720px;
+  margin: 0 var(--sp-md);
+}
+
+.slider__card-header {
+  font: var(--type-display-md);
+  letter-spacing: 0.195px;
+  color: var(--color-ink);
+  margin-bottom: var(--sp-sm);
+}
+
+.slider__card-text {
+  font: var(--type-body-md);
+  color: var(--color-body);
+  line-height: 1.7;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.slider__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-md);
+  margin-top: var(--sp-sm);
+}
+
+.slider__arrow {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-hairline);
+  background: var(--color-canvas-elevated);
+  color: var(--color-ink);
+  border-radius: var(--rounded-full);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.slider__arrow svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--color-ink);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.slider__arrow:hover {
+  border-color: var(--color-primary);
+  background-color: rgba(218, 41, 28, 0.1);
+}
+
+.slider__dots {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-xs);
+}
+
+.slider__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: var(--rounded-full);
+  background-color: var(--color-muted);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.slider__dot.is-active {
+  background-color: var(--color-primary);
+  transform: scale(1.3);
+  width: 2rem;
+}
+
+/* ---------- Platform Tabs ---------- */
+.tabs-section {
+  padding: var(--sp-xxl) 0;
+  background-color: var(--color-canvas);
+}
+
+.tabs {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.tabs__list {
+  display: flex;
+  border-bottom: 2px solid var(--color-hairline);
+  margin-bottom: var(--sp-md);
+}
+
+.tabs__tab {
+  flex: 1;
+  padding: var(--sp-sm) var(--sp-xs);
+  font: var(--type-button);
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  text-align: center;
+}
+
+.tabs__tab:hover {
+  color: var(--color-ink);
+}
+
+.tabs__tab.is-active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+.tabs__panel {
+  display: none;
+  padding: var(--sp-lg) 0;
+}
+
+.tabs__panel.is-active {
+  display: block;
+}
+
+.tabs__panel-inner {
+  background-color: var(--color-canvas-elevated);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--rounded-none);
+  padding: var(--sp-md);
+  text-align: center;
+}
+
+.tabs__panel-title {
+  font: var(--type-display-md);
+  letter-spacing: 0.195px;
+  color: var(--color-ink);
+  margin-bottom: var(--sp-xs);
+}
+
+.tabs__panel-text {
+  font: var(--type-body-md);
+  color: var(--color-body);
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto var(--sp-sm);
+}
+
+.tabs__list-items {
+  list-style: none;
+  margin: 0 auto;
+  max-width: 320px;
+  text-align: left;
+}
+
+.tabs__list-items li {
+  font: var(--type-body-md);
+  color: var(--color-body);
+  padding: var(--sp-xxs) 0;
+  border-bottom: 1px solid var(--color-hairline);
+  position: relative;
+  padding-left: var(--sp-sm);
+}
+
+.tabs__list-items li:last-child {
+  border-bottom: none;
+}
+
+.tabs__list-items li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-primary);
+}
+
+/* ---------- FAQ ---------- */
 .faq__list {
   max-width: 720px;
   margin: 0 auto;
