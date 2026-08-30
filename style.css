@@ -1,4 +1,4 @@
-/* ============================================
+﻿/* ============================================
    NexDrive — Design System (Ferrari Editorial)
    ============================================ */
 
@@ -8,6 +8,8 @@
 /* ---------- CSS Custom Properties ---------- */
 :root {
   /* Brand & Accent */
+  --color-original-red: #ff1100;
+  --color-white-red: #fc5347;
   --color-primary: #da291c;
   --color-primary-active: #b01e0a;
   --color-primary-hover: #9d2211;
@@ -31,9 +33,19 @@
   --color-body: #969696;
   --color-body-strong: #ffffff;
   --color-body-on-light: #181818;
-  --color-muted: #666666;
+  --color-muted: #535353;
+  --color-muted-dark: #666666;
   --color-muted-soft: #8f8f8f;
   --color-on-primary: #ffffff;
+
+  /* Theme-locked areas */
+  --color-fixed-canvas: #181818;
+  --color-fixed-canvas-translucent: rgba(24, 24, 24, 0.95);
+  --color-fixed-surface: #303030;
+  --color-fixed-ink: #ffffff;
+  --color-fixed-body: #969696;
+  --color-fixed-muted: #535353;
+  --color-fixed-hero-label: #b01e0a;
 
   /* Semantic */
   --color-info: #4c98b9;
@@ -85,6 +97,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
 }
 
 html {
@@ -132,6 +145,240 @@ textarea {
   outline: none;
 }
 
+/* ---------- Scroll Effects (IntersectionObserver only) ---------- */
+.container--effect--element.general__effects--elements {
+  transition: transform 0.25s ease-in, opacity 0.35s ease-in-out;
+}
+
+.blur--effects__element.general__effects--elements {
+  transition: transform 0.25s ease-in, opacity 0.35s ease-in-out, filter 0.2s ease-in-out;
+}
+
+.red--color--effects__elements.general__effects--elements {
+  transition: color 0.3s ease-in-out;
+}
+
+.border--lighting__elements.general__effects--elements {
+  transition: all 0.4s ease-in-out;
+}
+
+.container--fade-up {
+  transform: translateY(7rem);
+  opacity: 0.4;
+}
+
+.blur--effects {
+  filter: blur(10px);
+}
+
+.red__color--effect {
+  color: var(--color-primary);
+}
+
+/* ---------- Light Theme ---------- */
+.light__theme {
+  --color-canvas: #ffffff;
+  --color-canvas-elevated: #f7f7f7;
+  --color-ink: #181818;
+  --color-body: #4b4b4b;
+  --color-body-strong: #181818;
+  --color-muted: #7a7a7a;
+  --color-muted-soft: #9a9a9a;
+  --color-hairline: #e5e5e5;
+  --color-fixed-body: #969696;
+  --color-fixed-ink: #ffffff;
+  background-color: var(--color-canvas);
+}
+
+.light__theme :is(.trust-bar,
+  .problem-solution,
+  .products,
+  .impact,
+  .case-studies,
+  .partners,
+  .cta-band,
+  .why-nexdrive,
+  .global-coverage,
+  .tabs-section,
+  .faq) {
+  background-color: var(--color-canvas);
+}
+
+.light__theme :is(.how-it-works,
+  .testimonials,
+  .integrations,
+  .comparison,
+  .slider-section,
+  .stats-bar) {
+  background-color: var(--color-canvas-elevated);
+}
+
+.light__theme .stats-bar {
+  border-color: var(--color-hairline);
+}
+
+.light__theme :is(.section-header__title,
+  .problem-solution__title,
+  .product-card__title,
+  .feature-card__title,
+  .step__title,
+  .case-card__title,
+  .testimonial-card__name,
+  .integration-item__name,
+  .slider__card-header,
+  .tabs__panel-title,
+  .faq__question,
+  .cta-band__title) {
+  color: var(--color-body-on-light);
+}
+
+.light__theme :is(.section-header__subtitle,
+  .problem-solution__text,
+  .product-card__desc,
+  .step__desc,
+  .case-card__challenge,
+  .testimonial-card__quote,
+  .feature-card__desc,
+  .integration-item__desc,
+  .slider__card-text,
+  .tabs__panel-text,
+  .tabs__list-items li,
+  .faq__answer p,
+  .cta-band__subtitle) {
+  color: var(--color-muted-dark);
+}
+
+.light__theme .top-nav__link {
+  color: #969696;
+}
+
+.light__theme .top-nav__link:hover {
+  color: #ffffff;
+}
+
+.light__theme :is(.product-card,
+  .case-card,
+  .feature-card,
+  .integration-item,
+  .tabs__panel-inner) {
+  background-color: var(--color-canvas-elevated);
+  border-color: var(--color-hairline);
+}
+
+.light__theme :is(.testimonial-card,
+  .slider__card) {
+  background-color: var(--color-canvas);
+  border-color: var(--color-hairline);
+}
+
+.light__theme :is(.step,
+  .faq__item,
+  .comparison__table th,
+  .comparison__table td,
+  .partner-item) {
+  border-color: var(--color-hairline);
+}
+
+.light__theme .faq__chevron {
+  stroke: var(--color-body-on-light);
+}
+
+.light__theme .badge {
+  background-color: var(--color-canvas-elevated);
+  color: var(--color-body-on-light);
+}
+
+.light__theme .partner-item.border-to-red {
+  border-color: var(--color-primary);
+}
+
+.light__theme .partner-item__name,
+.light__theme .trust-bar__logo {
+  color: var(--color-body);
+}
+
+.light__theme :is(.trust-bar__label,
+  .stats-bar__label,
+  .impact__label,
+  .global-coverage__stat-label) {
+  color: var(--color-muted);
+}
+
+.light__theme .map-dot__label {
+  background-color: var(--color-canvas-elevated);
+  border-color: var(--color-hairline);
+  color: var(--color-body-on-light);
+}
+
+.light__theme .comparison__table th {
+  background-color: var(--color-canvas);
+  color: var(--color-body-on-light);
+}
+
+.light__theme .tabs__tab {
+  color: var(--color-muted);
+}
+
+.light__theme .tabs__tab:hover {
+  color: var(--color-body-on-light);
+}
+
+.light__theme .slider__arrow {
+  border-color: var(--color-hairline);
+}
+
+.light__theme .btn--outline {
+  border-color: var(--color-canvas-light);
+  color: var(--color-body-strong);
+}
+
+.light__theme .btn--outline:hover {
+  background-color: rgba(24, 24, 24, 0.06);
+}
+
+.light__theme .livery-band {
+  background-color: var(--color-primary);
+}
+
+.light__theme .livery-band__title {
+  color: #ffffff;
+}
+
+.light__theme .livery-band__subtitle {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.light__theme .livery-band .btn--outline {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.light__theme .livery-band .btn--outline:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+/* Keep red accents identical across themes. */
+.light__theme :is(.red__color--effect,
+  .comparison__us,
+  .case-card__result,
+  .product-card__link,
+  .feature-card__link,
+  .tabs__tab.is-active,
+  .stats-bar__number,
+  .impact__number,
+  .global-coverage__stat-number,
+  .step::before) {
+  color: var(--color-primary);
+}
+
+.light__theme :is(.product-card,
+  .feature-card,
+  .integration-item,
+  .case-card):hover {
+  border-color: var(--color-primary);
+}
+
 /*  burger menue lines rotate */
 
 
@@ -146,6 +393,10 @@ textarea {
 .lines--rotate .line-3 {
   transform: rotate(45deg);
   position: absolute;
+}
+
+.icon__hidden {
+  display: none;
 }
 
 /* ---------- Typography Utilities ---------- */
@@ -481,15 +732,15 @@ textarea {
   right: 0;
   z-index: 1000;
   height: 64px;
-  background-color: var(--color-canvas);
-  border-bottom: 1px solid var(--color-hairline);
+  background-color: var(--color-fixed-canvas);
+  border-bottom: 1px solid var(--color-fixed-surface);
   display: flex;
   align-items: center;
   transition: background-color 0.3s ease;
 }
 
 .top-nav--scrolled {
-  background-color: rgba(24, 24, 24, 0.95);
+  background-color: var(--color-fixed-canvas-translucent);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
@@ -514,7 +765,7 @@ textarea {
   display: flex;
   align-items: center;
   gap: var(--sp-xxs);
-  color: var(--color-ink);
+  color: var(--color-fixed-ink);
   font: var(--type-title-md);
   letter-spacing: 0.5px;
 }
@@ -549,12 +800,12 @@ textarea {
 
 .top-nav__link {
   font: var(--type-nav-link);
-  color: var(--color-body);
+  color: #969696;
   transition: color 0.2s ease;
 }
 
 .top-nav__link:hover {
-  color: var(--color-ink);
+  color: #ffffff;
 }
 
 .top-nav__actions {
@@ -570,7 +821,7 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--color-hairline);
+  border: 1px solid var(--color-fixed-surface);
   border-radius: var(--rounded-none);
   background-color: transparent;
   cursor: pointer;
@@ -585,14 +836,12 @@ textarea {
 .theme-toggle__icon {
   width: 18px;
   height: 18px;
-  stroke: var(--color-ink);
+  stroke: var(--color-fixed-ink);
   fill: none;
   stroke-width: 1.5;
+  transition: all 0.2s ease-in-out;
 }
 
-.theme-toggle__icon--light {
-  display: none;
-}
 
 .top-nav__hamburger {
   display: flex;
@@ -610,7 +859,7 @@ textarea {
 .top-nav__hamburger span {
   width: 24px;
   height: 2px;
-  background-color: var(--color-ink);
+  background-color: var(--color-fixed-ink);
   transition: all 0.3s ease;
 }
 
@@ -634,6 +883,28 @@ textarea {
   background-color: var(--color-primary);
   color: var(--color-on-primary);
   border: 1px solid var(--color-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn--primary::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -100%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0) 100%);
+  transform: skewX(-25deg);
+  transition: none;
+}
+
+.btn--primary:hover::after {
+  left: 150%;
+  transition: left 0.7s ease-in-out;
 }
 
 .btn--primary:hover {
@@ -720,21 +991,21 @@ textarea {
   font: var(--type-caption-upper);
   letter-spacing: 1.1px;
   text-transform: uppercase;
-  color: var(--color-primary);
+  color: var(--color-fixed-hero-label);
   margin-bottom: var(--sp-sm);
 }
 
 .hero__title {
   font: var(--type-display-mega);
   letter-spacing: -1.6px;
-  color: var(--color-ink);
+  color: var(--color-fixed-ink);
   max-width: 900px;
   margin-bottom: var(--sp-sm);
 }
 
 .hero__subtitle {
   font: var(--type-body-md);
-  color: var(--color-body);
+  color: var(--color-fixed-body);
   max-width: 560px;
   margin-bottom: var(--sp-md);
   line-height: 1.6;
@@ -744,6 +1015,15 @@ textarea {
   display: flex;
   flex-wrap: wrap;
   gap: var(--sp-xs);
+}
+
+.hero .btn--outline {
+  color: var(--color-fixed-ink);
+  border-color: var(--color-fixed-ink);
+}
+
+.hero .btn--outline:hover {
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 @media (max-width: 639px) {
@@ -926,7 +1206,8 @@ textarea {
   border: 1px solid var(--color-hairline);
   border-radius: var(--rounded-none);
   padding: var(--sp-md);
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, transform 0.25s ease-in,
+    opacity 0.35s ease-in-out;
 }
 
 .product-card:hover {
@@ -1092,17 +1373,22 @@ textarea {
 .livery-band {
   background-color: var(--color-primary);
   padding: var(--sp-xxl) 0;
+  text-align: center;
 }
 
 .livery-band__content {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .livery-band__title {
   font: var(--type-display-lg);
   letter-spacing: -0.36px;
-  color: var(--color-ink);
+  color: #ffffff;
   margin-bottom: var(--sp-sm);
+  text-align: center;
 }
 
 .livery-band__subtitle {
@@ -1111,6 +1397,7 @@ textarea {
   max-width: 600px;
   margin: 0 auto var(--sp-md);
   line-height: 1.6;
+  text-align: center;
 }
 
 /* ---------- Case Studies ---------- */
@@ -1124,11 +1411,13 @@ textarea {
   border: 1px solid var(--color-hairline);
   border-radius: var(--rounded-none);
   overflow: hidden;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, transform 0.25s ease-in,
+    opacity 0.35s ease-in-out;
 }
 
 .case-card:hover {
   border-color: var(--color-primary);
+  transform: translateY(-4px);
 }
 
 .case-card__image {
@@ -1184,6 +1473,8 @@ textarea {
   border: 1px solid var(--color-hairline);
   border-radius: var(--rounded-none);
   padding: var(--sp-md);
+  transition: transform 0.25s ease-in,
+    opacity 0.35s ease-in-out;
 }
 
 .testimonial-card__quote {
@@ -1205,6 +1496,7 @@ textarea {
   height: 48px;
   border-radius: var(--rounded-full);
   background-color: var(--color-canvas-elevated);
+  object-fit: cover;
 }
 
 .testimonial-card__name {
@@ -1250,6 +1542,16 @@ textarea {
   border-radius: var(--rounded-none);
   opacity: 0.6;
   transition: opacity 0.2s ease;
+}
+
+.border-lighting {
+  border: 2px solid #ffffff;
+}
+
+.border-to-red {
+  border: 2px solid var(--color-primary);
+  border-top-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
 }
 
 .partner-item:hover {
@@ -1302,7 +1604,7 @@ textarea {
   padding: var(--sp-md);
   display: flex;
   gap: var(--sp-sm);
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, transform 0.25s ease-in, opacity 0.35s ease-in-out;
 }
 
 .feature-card:hover {
@@ -1363,7 +1665,8 @@ textarea {
   padding: var(--sp-md);
   border: 1px solid var(--color-hairline);
   border-radius: var(--rounded-none);
-  transition: border-color 0.2s ease;
+  transition: transform 0.25s ease-in, opacity 0.35s ease-in-out,
+    border-color 0.2s ease;
 }
 
 .integration-item:hover {
@@ -1458,6 +1761,15 @@ textarea {
   border: 1px solid var(--color-hairline);
   border-radius: var(--rounded-none);
   overflow: hidden;
+}
+
+.global-coverage__map-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
 }
 
 .map-dot {
@@ -1708,6 +2020,7 @@ textarea {
 
 .tabs__panel.is-active {
   display: block;
+  transition: transform 1s ease-in-out;
 }
 
 .tabs__panel-inner {
@@ -1816,8 +2129,8 @@ textarea {
 
 /* ---------- Footer ---------- */
 .footer {
-  background-color: var(--color-canvas);
-  border-top: 1px solid var(--color-hairline);
+  background-color: var(--color-fixed-canvas);
+  border-top: 1px solid var(--color-fixed-surface);
   padding: var(--sp-xl) 0 var(--sp-lg);
 }
 
@@ -1836,7 +2149,7 @@ textarea {
 
 .footer__brand-desc {
   font: var(--type-body-sm);
-  color: var(--color-body);
+  color: var(--color-fixed-body);
   line-height: 1.6;
   margin-top: var(--sp-xs);
   max-width: 280px;
@@ -1846,7 +2159,7 @@ textarea {
   font: var(--type-caption-upper);
   letter-spacing: 1.1px;
   text-transform: uppercase;
-  color: var(--color-ink);
+  color: var(--color-fixed-ink);
   margin-bottom: var(--sp-sm);
 }
 
@@ -1858,18 +2171,18 @@ textarea {
 
 .footer__link {
   font: var(--type-body-sm);
-  color: var(--color-body);
+  color: var(--color-fixed-body);
   transition: color 0.2s ease;
 }
 
 .footer__link:hover {
-  color: var(--color-ink);
+  color: var(--color-fixed-ink);
 }
 
 .footer__bottom {
   margin-top: var(--sp-lg);
   padding-top: var(--sp-md);
-  border-top: 1px solid var(--color-hairline);
+  border-top: 1px solid var(--color-fixed-surface);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -1879,7 +2192,7 @@ textarea {
 
 .footer__copyright {
   font: var(--type-caption);
-  color: var(--color-muted);
+  color: var(--color-fixed-muted);
 }
 
 .footer__legal {
@@ -1889,12 +2202,12 @@ textarea {
 
 .footer__legal a {
   font: var(--type-caption);
-  color: var(--color-muted);
+  color: var(--color-fixed-muted);
   transition: color 0.2s ease;
 }
 
 .footer__legal a:hover {
-  color: var(--color-ink);
+  color: var(--color-fixed-ink);
 }
 
 /* ---------- Newsletter ---------- */
@@ -1931,6 +2244,24 @@ textarea {
   color: var(--color-muted);
 }
 
+.footer .newsletter {
+  background-color: var(--color-fixed-surface);
+}
+
+.footer .newsletter .text-ink {
+  color: var(--color-fixed-ink);
+}
+
+.footer .newsletter__input {
+  background-color: var(--color-fixed-canvas);
+  border-color: var(--color-fixed-surface);
+  color: var(--color-fixed-ink);
+}
+
+.footer .newsletter__input::placeholder {
+  color: var(--color-fixed-muted);
+}
+
 /* ---------- Badge Pill ---------- */
 .badge {
   display: inline-flex;
@@ -1949,7 +2280,7 @@ textarea {
   position: fixed;
   inset: 0;
   z-index: 999;
-  background-color: var(--color-canvas);
+  background-color: var(--color-fixed-canvas);
   display: flex;
   flex-direction: column;
   padding: var(--sp-xl) var(--sp-md);
@@ -1964,7 +2295,7 @@ textarea {
 .mobile-menu__close {
   align-self: flex-end;
   padding: var(--sp-xxs);
-  color: var(--color-ink);
+  color: var(--color-fixed-ink);
   font-size: 24px;
 }
 
@@ -1977,14 +2308,9 @@ textarea {
 
 .mobile-menu__link {
   font: var(--type-display-md);
-  color: var(--color-ink);
+  color: var(--color-fixed-ink);
   letter-spacing: -0.36px;
-}
-
-/* ---------- Scroll Reveal ---------- */
-.reveal {
-  opacity: 1;
-  transform: translateY(0);
+  transition: color 0.2s ease-in;
 }
 
 /* ---------- RTL Support ---------- */
