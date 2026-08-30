@@ -2308,9 +2308,33 @@ textarea {
 
 .mobile-menu__link {
   font: var(--type-display-md);
-  color: var(--color-fixed-ink);
+  color: #969696 !important;
   letter-spacing: -0.36px;
   transition: color 0.2s ease-in;
+}
+
+.mobile-menu__link:hover {
+  color: #ffffff !important;
+}
+
+.light__theme .mobile-menu__link {
+  color: #969696 !important;
+}
+
+.light__theme .mobile-menu__link:hover {
+  color: #ffffff !important;
+}
+
+@media (max-width: 767px) {
+  .desktop-theme-toggle {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-menu .theme-toggle {
+    display: none !important;
+  }
 }
 
 /* ---------- RTL Support ---------- */

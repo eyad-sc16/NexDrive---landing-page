@@ -40,16 +40,22 @@ const navObserver = new IntersectionObserver(function (entries) {
 
 const bodyThemeFn = function () {
   //////// Selecting elements ////////
-  const themeTogle = document.querySelector('.theme-toggle')
-  const themelightIcon = document.querySelector('.theme-toggle__icon--light')
-  const themeDarkIcon = document.querySelector('.theme-toggle__icon--dark')
+  const themeToggles = document.querySelectorAll('.theme-toggle')
 
   // events Listeners
-  themeTogle.addEventListener('click', function () {
-    document.body.classList.toggle('light__theme')
-    themeDarkIcon.classList.toggle('icon__hidden')
-    themelightIcon.classList.toggle('icon__hidden')
+  themeToggles.forEach(themeTogle => {
+    themeTogle.addEventListener('click', function () {
+      document.body.classList.toggle('light__theme')
+      closeFn()
+      themeToggles.forEach(t => {
+        const dIcon = t.querySelector('.theme-toggle__icon--dark')
+        const lIcon = t.querySelector('.theme-toggle__icon--light')
+        if (dIcon) dIcon.classList.toggle('icon__hidden')
+        if (lIcon) lIcon.classList.toggle('icon__hidden')
+      })
+    })
   })
+
 }
 bodyThemeFn()
 
@@ -57,6 +63,7 @@ bodyThemeFn()
 // handling burger munue
 const closeFn = function () {
   if (generalMobileMenuNav.classList.contains('is-open') || burgerMenueBtn.classList.contains('lines--rotate')) {
+    nav.classList.add('sticky')
     generalMobileMenuNav.classList.remove('is-open')
     burgerMenueBtn.classList.remove('lines--rotate')
   }
