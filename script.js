@@ -42,20 +42,34 @@ const bodyThemeFn = function () {
   //////// Selecting elements ////////
   const themeToggles = document.querySelectorAll('.theme-toggle')
 
+  // Check LocalStorage on load
+  const savedTheme = localStorage.getItem('nexdrive_theme')
+  if (savedTheme === 'light') {
+    document.body.classList.add('light__theme')
+    themeToggles.forEach(t => {
+      const dIcon = t.querySelector('.theme-toggle__icon--dark')
+      const lIcon = t.querySelector('.theme-toggle__icon--light')
+      if (dIcon) dIcon.classList.add('icon__hidden')
+      if (lIcon) lIcon.classList.remove('icon__hidden')
+    })
+  }
+
   // events Listeners
   themeToggles.forEach(themeTogle => {
     themeTogle.addEventListener('click', function () {
-      document.body.classList.toggle('light__theme')
-      closeFn()
+      const isLight = document.body.classList.toggle('light__theme')
+      
+      // Save to LocalStorage
+      localStorage.setItem('nexdrive_theme', isLight ? 'light' : 'dark')
+
       themeToggles.forEach(t => {
         const dIcon = t.querySelector('.theme-toggle__icon--dark')
         const lIcon = t.querySelector('.theme-toggle__icon--light')
-        if (dIcon) dIcon.classList.toggle('icon__hidden')
-        if (lIcon) lIcon.classList.toggle('icon__hidden')
+        if (dIcon) dIcon.classList.toggle('icon__hidden', isLight)
+        if (lIcon) lIcon.classList.toggle('icon__hidden', !isLight)
       })
     })
   })
-
 }
 bodyThemeFn()
 
