@@ -14,10 +14,76 @@
   <meta property="og:url" content="https://nexdrive.io">
   <title>NexDrive â€” Powering the Future of Smart Mobility</title>
   <link rel="stylesheet" href="style.css">
+  <script defer src="accessbility.js"></script>
   <script defer src="script.js"></script>
 </head>
 
 <body>
+
+
+  <!-- ============ ACCESSIBILITY TOOLBAR ============ -->
+  <div class="accessibility-widget" role="region" aria-label="Accessibility controls">
+    <button class="accessibility-toggle" aria-label="Open accessibility menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20" stroke="currentColor" fill="none"
+        stroke-width="2">
+        <circle cx="12" cy="4" r="2"></circle>
+        <path d="M19 13v-2c-1.5-.5-3-1-5-1s-3.5.5-5 1v2"></path>
+        <path d="M12 10v9"></path>
+        <path d="M9 21h6"></path>
+        <path d="M5 13l2-3"></path>
+        <path d="M19 13l-2-3"></path>
+      </svg>
+    </button>
+    <div class="accessibility-panel">
+      <div class="accessibility-header">
+        <h3>Accessibility Options</h3>
+        <button class="accessibility-close" aria-label="Close accessibility panel">&times;</button>
+      </div>
+      <div class="accessibility-body">
+        <div class="accessibility-option">
+          <label for="font-size-range">Font Size</label>
+          <input type="range" id="font-size-range" min="14" max="24" value="16" step="1">
+        </div>
+        <div class="accessibility-option">
+          <label for="line-height-range">Line Height</label>
+          <input type="range" id="line-height-range" min="1" max="2" value="1.5" step="0.1">
+        </div>
+        <div class="accessibility-option">
+          <label for="stop-animations-checkbox">
+            <input type="checkbox" id="stop-animations-checkbox"> Stop Animations
+          </label>
+        </div>
+        <div class="accessibility-option">
+          <label for="invert-colors-checkbox">
+            <input type="checkbox" id="invert-colors-checkbox"> Invert Colors
+          </label>
+        </div>
+        <div class="accessibility-option">
+          <label for="grayscale-checkbox">
+            <input type="checkbox" id="grayscale-checkbox"> Grayscale
+          </label>
+        </div>
+        <div class="accessibility-option">
+          <label for="dyslexia-font-checkbox">
+            <input type="checkbox" id="dyslexia-font-checkbox"> Readable Font
+          </label>
+        </div>
+        <div class="accessibility-option">
+          <label for="highlight-links-checkbox">
+            <input type="checkbox" id="highlight-links-checkbox"> Highlight Links
+          </label>
+        </div>
+        <div class="accessibility-option">
+          <label for="cursor-size-checkbox">
+            <input type="checkbox" id="cursor-size-checkbox"> Big Cursor
+          </label>
+        </div>
+        <div class="accessibility-actions">
+          <button type="button" class="accessibility-reset">Reset All</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ============ TOP NAVIGATION ============ -->
   <header class="top-nav" role="banner">
@@ -1039,6 +1105,11 @@
       </div>
     </section>
 
+    <button class="accessability-main-container">
+      <div class="accessability-inner-container">
+        <p>Accessability</p>
+      </div>
+    </button>
   </main>
 
   <!-- ============ FOOTER ============ -->
