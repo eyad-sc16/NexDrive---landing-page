@@ -58,7 +58,7 @@ const bodyThemeFn = function () {
   themeToggles.forEach(themeTogle => {
     themeTogle.addEventListener('click', function () {
       const isLight = document.body.classList.toggle('light__theme')
-      
+
       // Save to LocalStorage
       localStorage.setItem('nexdrive_theme', isLight ? 'light' : 'dark')
 
@@ -122,7 +122,6 @@ const hovorringEffects = function () {
   const mobileMenuNav = document.querySelector('.mobile-menu__nav')
   const targetSibilings = nav.querySelectorAll('.top-nav__link')
   const mobileMenueLinks = document.querySelectorAll('.mobile-menu__link')
-  console.log(mobileMenueLinks);
 
 
   const navEffectFn = function (e, sibilings, className) {
